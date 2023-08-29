@@ -74,12 +74,10 @@
                     min: "You must be at least 18 years old",
                     
                     },
-                }
-            });
-            $('#submitBtn').on('click',function(e) {
-              var formData = new FormData($('#signupForm')[0]);
-              $.ajax({
-                
+                },
+            submitHandler: function(form) {
+                var formData = new FormData($('#signupForm')[0]);
+                $.ajax({
                 url: "http://3.26.48.251:8000/api/addUsers", // 
                 type: "POST",
                 data: formData,
@@ -99,11 +97,10 @@
                             $("#response").fadeOut();
                         }, 3000);
                     console.log(error); 
+                    }
+                });
                 }
-              });
             });
-
-
         });
             
     </script>
@@ -195,7 +192,7 @@
                 </div>
                 <tr><td>
                 
-                    <button type="button" id ="submitBtn" class="btn btn-success">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+                    <button type="submit" id ="submit" class="btn btn-success">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
                     <button type="Reset" class="btn btn-success">Reset</button>
                 </td></tr>
             </table>

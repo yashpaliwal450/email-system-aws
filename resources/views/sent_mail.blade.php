@@ -42,7 +42,7 @@
                         $("#userName").html(name);
                     }
                     $.each(data.mails.data, function (key, value) {
-                        $("#tblMail").append("<tr class='clickable-row' data-href=http://3.26.48.251:8000/api/sent_mail_details_view?id="+value.email_id+"><td> To:"+value.email+"</td><td>" + value.body  +"</td><td>" +value.subject  +"</td><td>" +value.created_at  +"</td></tr>");
+                        $("#tblMail").append("<tr class='clickable-row' data-href=http://3.26.48.251:8000/api/sent_mail_details_view?id="+value.email_id+"><td> To:"+value.receiver.email+"</td><td>" + value.body  +"</td><td>" +value.subject  +"</td><td>" +value.created_at  +"</td></tr>");
                     });
                     $('.clickable-row').on('click', function() {
                         

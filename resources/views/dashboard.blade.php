@@ -43,7 +43,7 @@
                   $("#userName").html(name);
                 }
                 $.each(data.emails.data, function (key, value) {
-                  $("#tblMail").append("<tr class='clickable-row' data-href=http://3.26.48.251:8000/api/mail_view?id="+value.email_id+"><td> By:"+value.email+"</td><td>" + value.body  +"</td><td>" +value.subject  +"</td><td>" +value.created_at  +"</td></tr>");
+                  $("#tblMail").append("<tr class='clickable-row' data-href=http://3.26.48.251:8000/api/mail_view?id="+value.email_id+"><td> By:"+value.sender.email+"</td><td>" + value.body  +"</td><td>" +value.subject  +"</td><td>" +value.created_at  +"</td></tr>");
                   
                 });
                 $('.clickable-row').on('click', function() {

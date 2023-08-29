@@ -41,18 +41,18 @@
                         var name = data.user.first_name.substring(0, 1)+data.user.last_name.substring(0,1)
                         $("#userName").html(name);
                     }
-                    $("#email").html("By: "+ data.email.email);
+                    $("#email").html("By: "+ data.email.sender.email);
 
-                    if(data.cc!=null){
+                    if(data.email.cc.length>0){
                         $("#cctable").append("CC: ");
-                        $.each(data.cc, function (key, value) {
-                            $("#cctable").append(value.email+" ,");
+                        $.each(data.email.cc, function (key, value) {
+                            $("#cctable").append(value.user.email+" ,");
                         });
                     }
-                    if(data.bcc!=null){
+                    if(data.email.bcc.length>0){
                         $("#bcctable").append("BCC: ");
                         $.each(data.bcc, function (key, value) {
-                            $("#bcctable").append(value.email+" ,");
+                            $("#bcctable").append(value.user.email+" ,");
                         });
                     }
                     $("#mailsubject").html("Subject: "+data.email.subject);

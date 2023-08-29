@@ -44,20 +44,20 @@
                         var name = data.user.first_name.substring(0, 1)+data.user.last_name.substring(0,1)
                         $("#userName").html(name);
                     }
-                    $("#email").html("To: "+ data.email.email);
+                    $("#email").html("To: "+ data.email.receiver.email);
                     $("#mailsubject").html("Subject: "+data.email.subject);
                     $("#mailbody").html("Body: "+data.email.body);
                     $("#date").html("Date: "+data.email.created_at);
-                    if(data.cc.length>0){
+                    if(data.email.cc.length>0){
                         $("#cctable").append("CC:");
-                        $.each(data.cc, function (key, value) {
-                            $("#cctable").append(value.email+" ,");
+                        $.each(data.email.cc, function (key, value) {
+                            $("#cctable").append(value.user.email+" ,");
                         });
                     }
-                    if(data.bcc.length>0){
+                    if(data.email.bcc.length>0){
                         $("#bcctable").append("BCC:");
-                        $.each(data.bcc, function (key, value) {
-                            $("#bcctable").append(value.email+" ,");
+                        $.each(data.email.bcc, function (key, value) {
+                            $("#bcctable").append(value.user.email+" ,");
                         });
                     }
                     $.each(data.links, function (key, value) {

@@ -14,10 +14,10 @@ class Email_cc extends Model
     ];
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'user_id','id');
     }
     public function email()
     {
-        return $this->belongsTo(Email::class,'email_id');
+        return $this->belongsTo(Email::class,'email_id','id');
     }
 }

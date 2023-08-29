@@ -14,8 +14,6 @@ class Email extends Model
         'email_id',
         'reciver_id',
         'sender_id',
-        'cc_id',
-        'bcc_id',
         'subject',
         'body',
 
@@ -53,6 +51,6 @@ class Email extends Model
 
     public function attachments()
     {
-        return $this->hasMany(Attachment::class);
+        return $this->hasMany(Attachment::class,'');
     }
 }
